@@ -1,0 +1,62 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+  
+  {% if cryptolookup.Response %}
+    Sorry, {{ quote }} doen't exist. Try another one ...<br/>
+    You can combine multiple coins/tokens seperated by a comma, like etc,eth,xrp
+
+  {% endif %}
+
+  {% for key, value in cryptolookup.DISPLAY.items %}
+  <div class="card-deck">
+    <div class="card bg-light mb-3 border-primary" style="width: 18rem;">
+      <div class="card-body">
+        <h5 class="card-title">Name: {{ key }} - {{value.BTC.TOSYMBOL}}</h5>
+        <h5 class="card-subtitle mb-1 text-danger">Price: {{value.BTC.PRICE}}</h5><br/>
+        <strong>Day High: {{value.BTC.HIGH24HOUR}}</strong><br/>
+        <strong>Day Low: {{value.BTC.LOW24HOUR}}</strong><br/>
+        <strong>Day Verschil: {{value.BTC.CHANGEPCT24HOUR}} %</strong><br/>
+        <strong>Day Volume: {{value.BTC.TOTALVOLUME24HTO}}</strong><br/>
+        <strong>Supply: {{value.BTC.SUPPLY}}</strong><br/>
+        <strong>Market Cap: {{value.BTC.MKTCAP}}</strong><br/><br/>
+        <a href="https://www.coinigy.com/main/markets/BTRX/{{ key }}/BTC" class="card-link">Coinigy Bittrex: BTC - {{ key }}</a><br/>
+        <a href="https://www.coinigy.com/main/markets/KRKN/{{ key }}/XBT" class="card-link">Coinigy Kraken: BTC - {{ key }}</a><br>
+        <a href="https://www.coinigy.com/main/markets/KUCN/{{ key }}/BTC" class="card-link">Coinigy KuCoin: BTC - {{ key }}</a><br>
+      </div>
+    </div>
+    <div class="card bg-light mb-3 border-primary" style="width: 18rem;">
+      <div class="card-body">
+        <h5 class="card-title">Name: {{ key }} - {{value.USD.TOSYMBOL}}</h5>
+        <h5 class="card-subtitle mb-1 text-danger">Price: {{value.USD.PRICE}}</h5><br/>
+        <strong>Day High: {{value.USD.HIGH24HOUR}}</strong><br/>
+        <strong>Day Low: {{value.USD.LOW24HOUR}}</strong><br/>
+        <strong>Day Verschil: {{value.USD.CHANGEPCT24HOUR}} %</strong><br/>
+        <strong>Day Volume: {{value.USD.TOTALVOLUME24HTO}}</strong><br/>
+        <strong>Supply: {{value.USD.SUPPLY}}</strong><br/>
+        <strong>Market Cap: {{value.USD.MKTCAP}}</strong><br/><br/>
+        <a href="https://www.coinigy.com/main/markets/BTRX/{{ key }}/USD" class="card-link">Coinigy Bittrex: USD - {{ key }}</a><br/>
+        <a href="https://www.coinigy.com/main/markets/KRKN/{{ key }}/USD" class="card-link">Coinigy Kraken: USD - {{ key }}</a><br>
+        <a href="https://www.coinigy.com/main/markets/KUCN/{{ key }}/USD" class="card-link">Coinigy KuCoin: USD - {{ key }}</a><br>
+      </div>
+    </div>
+    <div class="card bg-light mb-3 border-primary" style="width: 18rem;">
+      <div class="card-body">
+        <h5 class="card-title">Name: {{ key }} - {{value.ETH.TOSYMBOL}}</h5>
+        <h5 class="card-subtitle mb-1 text-danger">Price: {{value.ETH.PRICE}}</h5><br/>
+        <strong>Day High: {{value.ETH.HIGH24HOUR}}</strong><br/>
+        <strong>Day Low: {{value.ETH.LOW24HOUR}}</strong><br/>
+        <strong>Day Verschil: {{value.ETH.CHANGEPCT24HOUR}} %</strong><br/>
+        <strong>Day Volume: {{value.ETH.TOTALVOLUME24HTO}}</strong><br/>
+        <strong>Supply: {{value.ETH.SUPPLY}}</strong><br/>
+        <strong>Market Cap: {{value.ETH.MKTCAP}}</strong><br/><br/>
+        <a href="https://www.coinigy.com/main/markets/BTRX/{{ key }}/ETH" class="card-link">Coinigy Bittrex : ETH - {{ key }}</a><br/>
+        <a href="https://www.coinigy.com/main/markets/KRKN/{{ key }}/ETH" class="card-link">Coinigy Kraken: ETH - {{ key }}</a><br>
+        <a href="https://www.coinigy.com/main/markets/KUCN/{{ key }}/ETH" class="card-link">Coinigy KuCoin: ETH - {{ key }}</a><br>
+      </div>
+    </div>
+  </div>
+  {% endfor %}
+  <br/><br/>
+{% endblock %}

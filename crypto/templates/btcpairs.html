@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<table class="table table-striped table-dark table-bordered table-hover">
+  <thead>
+    <tr>
+      <th scope="col">Name</th>
+      <th scope="col">Price</th>
+      <th scope="col">High</th>
+      <th scope="col">Low</th>
+      <th scope="col">Volume</th>
+      <th scope="col">MarketCap</th>
+      <th scope="col">Coinigy</th>
+    </tr>
+  </thead>
+   <tbody>
+  {% for key,value in btcpairs.DISPLAY.items %}
+     <tr>
+      <td>{{key}}</td>
+      <td>{{value.BTC.PRICE}}</td>
+      <td>{{value.BTC.HIGHDAY}}</td>
+      <td>{{value.BTC.LOWDAY}}</td>
+      <td>{{value.BTC.TOTALVOLUME24HTO}}</td>
+      <td>{{value.BTC.MKTCAP}}</td>
+      <td><a href="https://www.coinigy.com/main/markets/BTRX/{{ key }}/BTC" class="card-link">Coinigy Bittrex: BTC - {{ key }}</a></td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+
+<br/><br/>
+{% endblock %}
